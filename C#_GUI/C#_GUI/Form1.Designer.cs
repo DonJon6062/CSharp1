@@ -34,8 +34,8 @@
             ssnTextBox = new TextBox();
             ssnLabel = new Label();
             label2 = new Label();
-            fcolorTextBox = new TextBox();
-            fcolorLabel = new Label();
+            bdayTextBox = new TextBox();
+            bdayLabel = new Label();
             soggyOption = new RadioButton();
             crunchyOption = new RadioButton();
             noClickButton = new Button();
@@ -44,6 +44,9 @@
             secondNumTextBox = new TextBox();
             firstNumTextBox = new TextBox();
             exitButton = new Button();
+            subtractionButton = new Button();
+            multiplicationButton = new Button();
+            divisionButton = new Button();
             SuspendLayout();
             // 
             // clickButton
@@ -66,6 +69,7 @@
             nameLabel.Size = new Size(84, 32);
             nameLabel.TabIndex = 1;
             nameLabel.Text = "Name:";
+            nameLabel.Click += nameLabel_Click;
             // 
             // nameTextBox
             // 
@@ -84,6 +88,7 @@
             ssnTextBox.PlaceholderText = "Type Here!";
             ssnTextBox.Size = new Size(253, 35);
             ssnTextBox.TabIndex = 4;
+            ssnTextBox.TextChanged += ssnTextBox_TextChanged;
             // 
             // ssnLabel
             // 
@@ -105,24 +110,24 @@
             label2.TabIndex = 5;
             label2.Text = "Mood:";
             // 
-            // fcolorTextBox
+            // bdayTextBox
             // 
-            fcolorTextBox.Font = new Font("Cascadia Mono", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            fcolorTextBox.Location = new Point(615, 144);
-            fcolorTextBox.Name = "fcolorTextBox";
-            fcolorTextBox.PlaceholderText = "Type Here!";
-            fcolorTextBox.Size = new Size(253, 35);
-            fcolorTextBox.TabIndex = 8;
+            bdayTextBox.Font = new Font("Cascadia Mono", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bdayTextBox.Location = new Point(615, 144);
+            bdayTextBox.Name = "bdayTextBox";
+            bdayTextBox.PlaceholderText = "Type Here!";
+            bdayTextBox.Size = new Size(253, 35);
+            bdayTextBox.TabIndex = 8;
             // 
-            // fcolorLabel
+            // bdayLabel
             // 
-            fcolorLabel.AutoSize = true;
-            fcolorLabel.Font = new Font("Cascadia Mono SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            fcolorLabel.Location = new Point(617, 101);
-            fcolorLabel.Name = "fcolorLabel";
-            fcolorLabel.Size = new Size(238, 32);
-            fcolorLabel.TabIndex = 7;
-            fcolorLabel.Text = "Favourite Color:";
+            bdayLabel.AutoSize = true;
+            bdayLabel.Font = new Font("Cascadia Mono SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bdayLabel.Location = new Point(617, 101);
+            bdayLabel.Name = "bdayLabel";
+            bdayLabel.Size = new Size(140, 32);
+            bdayLabel.TabIndex = 7;
+            bdayLabel.Text = "Birthday:";
             // 
             // soggyOption
             // 
@@ -175,11 +180,11 @@
             // confirmButton
             // 
             confirmButton.Font = new Font("Cascadia Mono", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            confirmButton.Location = new Point(324, 97);
+            confirmButton.Location = new Point(324, 101);
             confirmButton.Name = "confirmButton";
-            confirmButton.Size = new Size(182, 40);
+            confirmButton.Size = new Size(44, 36);
             confirmButton.TabIndex = 13;
-            confirmButton.Text = "Confirm";
+            confirmButton.Text = "+";
             confirmButton.UseVisualStyleBackColor = true;
             confirmButton.Click += confirmButton_Click;
             // 
@@ -216,11 +221,47 @@
             exitButton.UseVisualStyleBackColor = true;
             exitButton.Click += exitButton_Click;
             // 
+            // subtractionButton
+            // 
+            subtractionButton.Font = new Font("Cascadia Mono", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            subtractionButton.Location = new Point(374, 101);
+            subtractionButton.Name = "subtractionButton";
+            subtractionButton.Size = new Size(44, 36);
+            subtractionButton.TabIndex = 17;
+            subtractionButton.Text = "-";
+            subtractionButton.UseVisualStyleBackColor = true;
+            subtractionButton.Click += subtractionButton_Click;
+            // 
+            // multiplicationButton
+            // 
+            multiplicationButton.Font = new Font("Cascadia Mono", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            multiplicationButton.Location = new Point(424, 101);
+            multiplicationButton.Name = "multiplicationButton";
+            multiplicationButton.Size = new Size(44, 36);
+            multiplicationButton.TabIndex = 18;
+            multiplicationButton.Text = "x";
+            multiplicationButton.UseVisualStyleBackColor = true;
+            multiplicationButton.Click += multiplicationButton_Click;
+            // 
+            // divisionButton
+            // 
+            divisionButton.Font = new Font("Cascadia Mono", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            divisionButton.Location = new Point(474, 101);
+            divisionButton.Name = "divisionButton";
+            divisionButton.Size = new Size(44, 36);
+            divisionButton.TabIndex = 19;
+            divisionButton.Text = "/";
+            divisionButton.UseVisualStyleBackColor = true;
+            divisionButton.Click += divisionButton_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(880, 432);
+            Controls.Add(divisionButton);
+            Controls.Add(multiplicationButton);
+            Controls.Add(subtractionButton);
             Controls.Add(exitButton);
             Controls.Add(firstNumTextBox);
             Controls.Add(secondNumTextBox);
@@ -229,8 +270,8 @@
             Controls.Add(noClickButton);
             Controls.Add(crunchyOption);
             Controls.Add(soggyOption);
-            Controls.Add(fcolorTextBox);
-            Controls.Add(fcolorLabel);
+            Controls.Add(bdayTextBox);
+            Controls.Add(bdayLabel);
             Controls.Add(label2);
             Controls.Add(ssnTextBox);
             Controls.Add(ssnLabel);
@@ -253,8 +294,8 @@
         private Label ssnLabel;
         private TextBox textBox;
         private Label label2;
-        private TextBox fcolorTextBox;
-        private Label fcolorLabel;
+        private TextBox bdayTextBox;
+        private Label bdayLabel;
         private RadioButton soggyOption;
         private RadioButton crunchyOption;
         private Button noClickButton;
@@ -263,5 +304,8 @@
         private TextBox secondNumTextBox;
         private TextBox firstNumTextBox;
         private Button exitButton;
+        private Button subtractionButton;
+        private Button multiplicationButton;
+        private Button divisionButton;
     }
 }
